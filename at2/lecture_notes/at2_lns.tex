@@ -1,7 +1,122 @@
 \documentclass{article}
 
+\usepackage{technical_notes}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\makeindex
+
 \begin{document}
 
-Hello, world!
+\section{Lecture 1}
+\label{sec:lecture1}
+
+Recall that the \textbf{tangent bundle}~\index{tangent bundle} is also a smooth manifold, with the natural footpoint projection given by
+\begin{equation}
+  \pi : TM \to M.
+\end{equation}
+
+A~\index{section}\textbf{section} of $\pi$ is a (smooth) map $X: M \to TM$ such that $\pi \circ X = \text{id}_M$.
+
+\begin{Definition}{Riemannian Metric \& Riemannian Manifold}
+  .A ($C^k$-)\textbf{Riemannian metric}~\index{Riemannian metric} $g$ on $M$ is a family $g = \{ g_p\}_{p \in M}$ of inner products (positive definite, symmetric bilinear)
+\begin{equation}
+  g_p: T_pM \times T_pM \rightarrow R
+\end{equation}
+such that for any smooth vector fields $X, Y$ on $M$, the function
+\begin{equation}
+  f : M \rightarrow R, \quad p \mapsto g_p (X_p, Y_p)
+\end{equation}
+is smooth ($C^k$-differentiable). The pair $(M, g)$ is called a \textbf{Riemannian manifold}~\index{Riemannian manifold}.
+\end{Definition}
+
+\textit{\textbf{Remarks.}}
+
+\begin{enumerate}
+  \item Given a $C^{\infty}$ atlas of $M$, then a family of inner products $g = \{ g_p \}_{p \in M}$ is a ($C^k$-)Riemannian metric iff for any chart $(U, x)$ in this atlas the function
+    \begin{equation}
+      U \rightarrow R, \quad p \mapsto g_p\Big( \frac{\partial}{\partial x_j}\Big|_p, \frac{\partial}{\partial x_k}\Big|_p \Big)
+    \end{equation}
+
+    is smooth. (To be shown in an exercise class.)
+  \item Suppose we have an open subset $U$ inside a ($C^k$-)Riemannian manifold $(M, g)$. Then $(U, g|_U$ is also a ($C^k$-)Riemannian manifold, where
+  \begin{equation}
+    g|_U:= \{ g_p\}_{p \in U}.
+  \end{equation}
+  \item We sometimes write $\langle \cdot , \cdot \rangle$ instead of $g$ (respectively $\langle \cdot , \cdot \rangle_{p}$ instead of $g_p$). 
+  \item Sometimes, also indefinite families of inner products are considered, so-called \textbf{semi-Riemannian metrics/manifolds}\index{semi-Riemannian metrics/manifolds}, e.g. in the theory of relativity where you have Lorentzian metrics, i.e. semi-Riemannian metrics of signature $(1, n)$ like the Lorentzian metric
+    \begin{equation}
+      x_0y_0 - \sum\limits_{i = 1}^nx_i y_i \text{ on } \mathbb{R}^{n+1}.
+    \end{equation}
+
+\end{enumerate}
+
+A simple example of a Riemannian manifold: any open subset $U$ of a Euclidean vector space $(V, \langle \cdot , \cdot \rangle)$ is a Riemannian manifold with Riemannian metric $g_p = \langle \cdot , \cdot \rangle_p, \; p \in U$.
+
+\begin{Proposition}{Riemannian Immersions}
+.  Let $M$ a smooth manifold, $(N, h)$ a Riemannian manifold, $\varphi : M \rightarrow N$ a smooth ($C^{k+1}$-)immersion. Then $(N, h)$ induces a Riemannian metric $g$ on $M$ via
+   \begin{equation}
+     g_p(v, w) = h_{\varphi(p)}(d\varphi_pv, d\varphi_pw) ; \quad p \in M; \; v, w \in T_pM.
+   \end{equation}
+
+   This Riemannian metric is called the \textbf{pullback of $h$ via $\phi$, denoted $\varphi^{*}h$.} The immersion $\varphi: (M, g) \rightarrow (N, h)$ is called a \textbf{Riemannian immersion}~\index{Riemannian immersion}.
+\end{Proposition}
+
+\begin{proof}
+  Since $d\varphi_p:T_pM \rightarrow T_{\varphi(p)}N$ is linear and injective, $\forall p \in M$, $g_p$ is bilinear and positive definite (as $h_{\varphi(p)}$ is).
+
+  Symmetry of $h_{\varphi(p)} \Rightarrow$  symmetry of $g_p$ $\rightarrow$ $g_p$ an inner product.
+
+  \textit{Smoothness}. Let's first assume that $\varphi$ is a (local) diffeomorphism. Then a smooth vector field $X$ on $M$ induces a smooth vector field on $N$, namely
+  \begin{equation}
+    (\varphi^{*}X): q \mapsto d\varphi_{\varphi^{-1}(q)}X_{\varphi^{-1}(q)}
+  \end{equation}
+
+  and we have that
+  \begin{align}
+    p \mapsto g_p(X_p, Y_p) &= h_p ((\varphi^{*}X)_{\varphi(p)}, (\varphi^{*}Y)_{\varphi(p)}) \\
+    &= (h ( ( \varphi^{*}X)_{.}, (\varphi^{*}Y)_{.}) \circ \varphi)(p)
+  \end{align}
+
+  For the general case, one can now apply the local structure for immersions and assume that
+  \begin{equation}
+    M = U \subset \R^n \text{ open, } N = V \subset \R^{n+k} \text{ open}
+  \end{equation}
+
+  and $\varphi = i : U \hookrightarrow V$ the inclusion. Next, extend the vector field $X$ on $U$ to
+  \begin{equation}
+    \tilde{X} (p) = (X(p), 0) \text{ on } V.
+  \end{equation}
+
+  ($\rightarrow$ details next Wednesday).
+\end{proof}
+
+\textbf{\textit{Remarks}}.
+\begin{enumerate}
+\item By Whitney's immersion theorem, any smooth manifold can be immersed (actually embedded) into some $\R^n$. So it inherits a Riemannian metric from $\R^n$.
+\item By Nash's embedding, any ($C^{k \geq 3}$-)Riemannian manifold can be isometrically immersed (embedded) into some $\R^n$.
+\end{enumerate}
+
+\textbf{\textit{Note.}} If $g, h$ are Riemannian metrics on $M$, then also $(g+h)_p = g_p + h_p$ defines a Riemannian metric on $M$.
+\begin{equation}
+  f : M \rightarrow \R
+\end{equation}
+
+is a positive smooth function, then
+\begin{equation}
+  (f \cdot g)_p = f_p g_p
+\end{equation}
+defines a Riemannian metric on M.
+
+\begin{Example}[]{Balls and Riemannian Metric.}
+.$B_1^n$ together with the Riemannian metric $g$, given by
+\begin{equation}
+  g_p(v, w) = \frac{1}{(1-\langle p, p \rangle)^2}\langle v, w \rangle_{p}
+\end{equation}
+defines a Riemannian manifold isometric to hyperbolic space. 
+\end{Example}
+
+\printindex
 
 \end{document}
