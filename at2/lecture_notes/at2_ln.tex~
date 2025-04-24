@@ -1,0 +1,12 @@
+\documentclass{article}
+
+\usepackage{technical_notes}
+
+\begin{document}
+
+\section{Lecture 1}
+\label{sec:lecture1}
+
+
+
+\end{document}
