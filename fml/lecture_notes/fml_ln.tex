@@ -1,0 +1,107 @@
+\documentclass{article}
+
+\usepackage{technical_notes_1_20250424}
+
+\makeindex
+
+\begin{document}
+
+\tableofcontents
+
+\section{Lecture 1}
+\label{sec:lecture1}
+
+We define \textbf{machine learning}\index{machine learning} as a computational method to convert experience into expertise. We say that \textit{experience} is past data, and \textit{expertise} is the prediction of future outcomes.
+
+Some standard learning tasks are: classification, regression, clustering, dimensionality reduction/manifold learning (find lower dimensional representation of data while preserving its properties).
+
+In this course:
+\begin{enumerate}
+\item Theretical foundations and statistical learning theory. PAC learning framework, Rademacher complexity, VC-dimension.
+\item Analysis of ML methods \& algorithms (with applications of part 1).
+  \begin{enumerate}
+  \item SVM \& kernel methods
+  \item Boosting
+  \item Logistic regression
+  \item SGD
+  \item Neural networks (deep learning)
+  \end{enumerate}
+\end{enumerate}
+
+There may be a part 2 of this course.
+
+\subsection{Basic ML Setup}
+\label{sec:basic_ml_setup}
+
+We have an \textbf{input space}\index{input space} $X$ for example $X = \R^n, [0, 1]^2, \dots$. We have an \textbf{output space}\index{output space} $Y$, which cna be for example $\{0, 1\}, \R, \dots.$ We also have \textbf{training data}\index{training data}, which are tuples with the data and a label: $(x_i, y_i) , \; i = 1, \dots, m$ for labeled data, or unlabeled data given by simply a list $x_i, i = 1, \dots, m$. We also have a \textbf{hypothesis class}\index{hypothesis class} $\mathcal{H}$, which is a set of functions $h : X \rightarrow Y$.
+
+Now, the question is: what class of functions should we learn? Why do we need to choose $\mathcal{H}$? We use the example of a papaya classifcation, and describe the natural way to iterate from overfit data to a simple rectangular classifier, on the inputs of softness and color as two axes (therefore the input space is $X = [0, 1]^2$). This is described in some detail in the live notes, but does not warrant TeXed notes.
+
+Now, there are several different types of learning that are sketched.
+\begin{enumerate}
+\item Supervised.
+\item Unsupervised.
+\item Semisupervised.
+\item Online learning.
+\item RL.
+\item Active learning.
+\end{enumerate}
+
+\subsection{PAC Learning Framework}
+
+We now describe the \textbf{PAC learning framework}\index{PAC learning framework}. Consider a supervised learning scenario for binary classification. We have $X$ our input space, $Y$ our output, and training data
+\begin{equation}
+  S = ((x_1, y_1), \dots, (x_m, y_m) ) \in (X \times Y)^m.
+\end{equation}
+
+We make some assumptions.
+\begin{enumerate}
+\item $x_i, \; i = 1, \dots, m$ are drawn iid, according to some \textit{unknown} probability distribution $\mathcal{D}$ on $X$.
+\item Labels are given $y_i = f(x_i), \; i = 1, \dots, m$ for some map $f: X \rightarrow Y$.
+\end{enumerate}
+
+Our goal is to find $f$ (at least approximately). More generally (later), we will assume that $(x_i, y_i)$ are drawn iid from $\mathcal{D}$ on $X \times Y$.
+
+The learner's output will be a prediction rule
+\begin{equation}
+  h : X \rightarrow Y,
+\end{equation}
+and ideally $h = f$. The learner will select a hypothesis from
+\begin{equation}
+  \mathcal{H} \subset \{ g : X \rightarrow Y \}
+\end{equation}
+and $f$ may or may not be contained in $\mathcal{H}$.
+
+Assumptions on measurable spaces: several assumptions are made, simply to remove pathological mathematical cases. For measurable spaces $X, Y, Z, \dots$:
+\begin{enumerate}
+\item If the space is finite/countably infinite, it is equipped with the $\sigma$-algebra consisting of all subsets of the space.
+\item Otherwise, assume it is a metric space, complete and separable, equipped with the corresponding Borel $\sigma$-algebra.
+\item For products $X \times Y$, it carries the product $\sigma$-algebra of $X$ and $Y$. 
+\end{enumerate}
+
+We can also define the \textbf{generalization error}\index{generalization error}.
+
+\begin{Definition}{Generalization Error}
+. For $h : X \rightarrow Y = \{ 0 , 1 \}$, the \textbf{generalization error} or \textbf{risk}\index{risk} of $h$ is:
+\begin{equation}
+  R(h) = \underset{x \sim \mathcal{D}}{\bP} (h(x) \neq f(x)) = \bE [ \1_{\{x | h(x) \neq f(x) \} } ].
+\end{equation}
+\end{Definition}
+
+To see that this makes sense, note that 
+\begin{equation}
+\label{eq:1}
+  \bP (A) = \bE[\1_A],
+\end{equation}
+since
+\begin{align}
+\label{eq:2}
+  \bP (A) &= \int_A 1 \, dP(\omega) \\
+  \bE [\1] &= \int_{\Omega} \1_A \, dP(\omega).
+\end{align}
+
+Also note that above, we assumed a fixed labeling function $f: X \rightarrow Y = \{ 0 , 1 \}$ and probability distribution $\mathcal{D}$ on $X$.
+
+\printindex
+
+\end{document}

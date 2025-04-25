@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.11.9)  25 APR 2025 09:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.11.9)  25 APR 2025 11:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -781,26 +781,28 @@ Package hyperref Info: Link coloring OFF on input line 7.
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks46
 \inpenc@posthook=\toks47
-)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
-
+) (./msp_ln.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 17
-.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 2.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-Overfull \hbox (7.4363pt too wide) in paragraph at lines 28--29
+))
+\tf@toc=\write6
+\openout6 = `msp_ln.toc'.
+
+
+Overfull \hbox (7.4363pt too wide) in paragraph at lines 30--31
 []\OT1/cmr/bx/n/10 Configuration space[]\OT1/cmr/m/n/10 . We de-note a con-fig-
 u-ra-tion space by $
 [] := \OMS/cmsy/m/n/10 f^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10
@@ -810,7 +812,7 @@ u-ra-tion space by $
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 73--75
+Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
 
@@ -826,10 +828,10 @@ Package rerunfilecheck Info: File `msp_ln.out' has not changed.
 (rerunfilecheck)             Checksum: B6E4805F508FC3A4A498405CB7BDDE72;344.
  ) 
 Here is how much of TeX's memory you used:
- 28795 strings out of 474222
- 588673 string characters out of 5748733
- 1940975 words of memory out of 5000000
- 50591 multiletter control sequences out of 15000+600000
+ 28803 strings out of 474222
+ 588770 string characters out of 5748733
+ 1938975 words of memory out of 5000000
+ 50595 multiletter control sequences out of 15000+600000
  562486 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,16n,113p,420b,481s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -849,10 +851,10 @@ sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb>
-Output written on msp_ln.pdf (3 pages, 175660 bytes).
+Output written on msp_ln.pdf (3 pages, 176127 bytes).
 PDF statistics:
- 188 PDF objects out of 1000 (max. 8388607)
- 123 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
+ 192 PDF objects out of 1000 (max. 8388607)
+ 127 compressed objects within 2 object streams
+ 22 named destinations out of 1000 (max. 500000)
  181 words of extra memory for PDF output out of 10000 (max. 10000000)
 

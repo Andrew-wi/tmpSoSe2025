@@ -1,0 +1,3 @@
+\contentsline {section}{\numberline {1}Lecture 1}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Basic ML Setup}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}PAC Learning Framework}{2}{subsection.1.2}%
