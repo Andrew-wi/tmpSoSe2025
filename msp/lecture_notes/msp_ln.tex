@@ -1,0 +1,87 @@
+\documentclass{article}
+
+\usepackage{technical_notes_1_20250424}
+
+\makeindex
+
+\begin{document}
+
+\section{Lecture 1}
+\label{sec:lecture1}
+
+Overview of the math part of the lecture. FV = Friedli, Velenik.
+
+\begin{enumerate}
+\item Ising model: existence of thermodynamic limit of pressure/free energy. We will go over Peierl's argument and phase transitions. \textit{Book references:} FV Chapter 3.
+\item Gibbs measures in infinite volume. DLR conditions: Debrushin, Lanford, Ruelle. \textit{Book references:} FV Chapter 6.
+\item Mermin-Wagner theorem, absence of continuous symmetry breaking in $d = 1, 2$. \textit{Book references:} FV Chapter 9.
+\item If time admits: reflection positivity \& existence of symmetry breaking in $d = 3$. \textit{Book references:} FV Chapter 10.
+\end{enumerate}
+
+\subsection{The Ising Model}
+\label{sec:ising_model}
+
+\subsubsection{The Model}
+
+\textbf{\textit{Notation:}} we will denote by~\index{$\Lambda$}~$\Lambda \Subset \Z^d$ that $\Lambda \subset \Z^d$, and that $\Lambda$ is finite, and non-empty. Often, it will be the case that $\Lambda = \{ 1 , \dots , L \}^d, \; L \in \N$; i.e., that $\Lambda$ consists of a square grid (a ``lattice'').
+
+\textbf{Configuration space}\index{configuration space}. We denote a configuration space by $\Omega_{\Lambda} := \{ -1, \, +1 \}^{\Lambda}$. Here,
+\begin{equation}
+  \omega \in \Omega_{\Lambda}, \; \omega = (\omega_i)_{i \in\Lambda}, \; \omega_i\in \{ \pm 1\}.
+\end{equation}
+More verbosely:~\index{$\Omega_{\Lambda}$}~$\Omega_{\Lambda}$ is the set of functions assigning either $+1$ or $-1$ onto each vertex of the lattice, and each $\omega$ is an individual ``configuration'' which is a collection of $\{ \pm 1 \}$ assigned to each vertex $i \in \Lambda$.
+
+We also let $h \in \R$ be an external magnetic field. Now, we are in place to define the ``\textbf{Ising Hamiltonian}''\index{Ising Hamiltonian}, denoted by $\sH_{\Lambda; h}$:
+\begin{align*}
+  \mathscr{H}_{\Lambda; h} : \Omega_{\Lambda} &\rightarrow \R, \\
+  \omega = (\omega_i)_{i \in \Lambda} &\mapsto \sH_{\Lambda;h}(\omega) = {-} \sum\limits_{\substack{\{i, j\} \subset \Lambda \\ i, j \text{ n.n.}}} \omega_i \omega_j - h \sum\limits_{i \in \Lambda} \omega_i
+\end{align*}
+where ``n.n.'' means ``nearest neighbors in $\Z^d$''.
+
+A natural question that arises is: what is (are) the minimizer(s) of $\sH$?
+\begin{align*}
+  h > 0 &: \omega_i = 1 \; \forall i,\\
+  h < 0 &: \omega_i = -1 \; \forall i, \\
+  h = 0 &: 2 \text{ minimizers, all } +1 \text{ or all } -1.
+\end{align*}
+
+We also introduce now the \textbf{partition function}\index{partition function} (Zustandssamme):
+\begin{eqnarray}
+\label{eq:2}
+Z_{\Lambda} = \sum\limits_{\omega\in\Omega_{\Lambda}} e^{-\beta\sH_{\Lambda;h}(\omega)}.
+\end{eqnarray}
+where $\beta = \frac{1}{T}$ is the \textbf{inverse temperature}\index{inverse temperature}.
+
+With this, we may then define the \textbf{Gibbs measure}\index{Gibbs measure}, which is a probability measure on $\Omega_{\Lambda}$:
+\begin{eqnarray}
+\label{eq:1}
+\mu_{\lambda;\beta,h}(\{\omega\}) = \frac{1}{Z_{\Lambda}(\beta,h)} e^{-\beta\sH_{\lambda;h}(\omega)}
+\end{eqnarray}
+Let's take note of a couple important regimes in different values of the parameter $\beta$. First, when $\beta = 0$, we get a uniform distribution: it's completely flat. When $\beta \to \infty$, then the measure concentrates on the minimzer(s).
+
+Now, we can define \textbf{pressure/free energy}\index{pressure}\index{free energy}:
+\begin{eqnarray}
+\label{eq:3}
+  \psi_{\Lambda}(\beta,h) := \frac{1}{\beta|\Lambda|}\log Z_{\Lambda} (\beta, h).
+\end{eqnarray}
+This quantity is dependent upon the system size, inverse temperature, and magnetic field, as we might intuitively expect.
+
+We can also define the \textbf{total magnetization}\index{total magnetization}, which is the map:
+\begin{align}
+  M_{\lambda} : \Omega_{\Lambda} &\to \R, \\
+  \omega &\mapsto M_{\Lambda}(\omega) = \sum\limits_{i \in \Lambda} \omega_i.
+\end{align}
+Physically, this is just the sum of the spins on each vertex of the lattice $\Lambda$.\\
+
+\noindent\textbf{Observation.} We now make an observation regarding the dependence of $\psi_{\Lambda}$ on $h$:
+\begin{align}
+\label{eq:6}
+  \frac{\partial}{\partial h} \psi_{\Lambda}(\beta,h) &= \frac{1}{|\Lambda|}\sum\limits_{\omega\in\Omega_{\Lambda}} M_{\Lambda}(\omega) e^{-\beta\sH_{\Lambda,h}(\omega)} \frac{1}{Z_{\Lambda}(\beta,h)} \\
+                                                      &= \frac{1}{|\Lambda|} \langle M_{\Lambda} \rangle_{\Lambda, \beta, h} \\
+  &=: m_{\Lambda}(\beta, h),
+\end{align}
+where $m_{\Lambda}(\beta, h)$ is the \textbf{average magnetization}\index{average magnetization} per unit volume.
+
+\printindex
+
+\end{document}
