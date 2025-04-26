@@ -1,0 +1,76 @@
+\ProvidesFile{technical_notes}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphics}
+\usepackage{hyperref}
+\usepackage{makeidx}
+\usepackage{tikz-cd}
+\usepackage[most]{tcolorbox}
+\usepackage{cleveref}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\tcbuselibrary{skins,theorems}
+
+% \tcbset{
+%   defstyle/.style={fonttitle=\bfseries\upshape, fontupper=\slshape,
+%   arc=0mm, colback=blue!5!white,colframe=blue!75!black},
+%   theostyle/.style={fonttitle=\bfseries\upshape, fontupper=\slshape,
+%   colback=red!10!white,colframe=red!75!black},
+%   egstyle/.style={fonttitle=\bfseries\upshape, fontupper=\slshape,
+%   colback=red!10!white,colframe=green!75!black},
+% }
+
+\tcbset{
+  defstyle/.style={
+    fonttitle=\bfseries\upshape,
+    fontupper=\slshape,
+    arc=0mm,
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    before upper=\leavevmode,    % ← start in horizontal mode
+    boxsep=2pt,                  % ← internal padding
+    enlarge top by=1pt           % ← extra gap under title
+  },
+  theostyle/.style={
+    fonttitle=\bfseries\upshape,
+    fontupper=\slshape,
+    arc=0mm,
+    colback=red!10!white,
+    colframe=red!75!black,
+    before upper=\leavevmode,    
+    boxsep=2pt,
+    enlarge top by=1pt
+  },
+  egstyle/.style={
+    fonttitle=\bfseries\upshape,
+    fontupper=\slshape,
+    arc=0mm,
+    colback=green!10!white,
+    colframe=green!75!black,
+    before upper=\leavevmode,    
+    boxsep=2pt,
+    enlarge top by=1pt
+  },
+}
+
+\NewTcbTheorem[number within=subsection,crefname={definition}{definitions}]%
+  {Definition}{Definition}{defstyle}{def}
+\NewTcbTheorem[use counter from=Definition,crefname={theorem}{theorems}]%
+  {Theorem}{Theorem}{theostyle}{theo}
+\NewTcbTheorem[use counter from=Definition,crefname={proposition}{theorems}]%
+  {Proposition}{Proposition}{theostyle}{theo}
+\NewTcbTheorem[use counter from=Definition,crefname={corollary}{corollaries}]%
+  {Corollary}{Corollary}{theostyle}{cor}
+\NewTcbTheorem[use counter from=Definition,crefname={example}{examples}]%
+  {Example}{Example}{egstyle}{eg}
+
+
+\tcolorboxenvironment{proof}{blanker}

@@ -1,0 +1,93 @@
+\ProvidesFile{technical_notes}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphics}
+\usepackage{hyperref}
+\usepackage{makeidx}
+\usepackage{mathrsfs}     
+\usepackage{tikz-cd}
+\usepackage[most]{tcolorbox}
+\usepackage{ulem}
+\usepackage{cleveref}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\sH}{\mathscr{H}}
+
+\tcbuselibrary{skins,theorems}
+\usetikzlibrary{decorations.pathmorphing}
+
+% \tcbset{
+%   defstyle/.style={fonttitle=\bfseries\upshape, fontupper=\slshape,
+%   arc=0mm, colback=blue!5!white,colframe=blue!75!black},
+%   theostyle/.style={fonttitle=\bfseries\upshape, fontupper=\slshape,
+%   colback=red!10!white,colframe=red!75!black},
+%   egstyle/.style={fonttitle=\bfseries\upshape, fontupper=\slshape,
+%   colback=red!10!white,colframe=green!75!black},
+% }
+
+% wavy blue underline, from https://tex.stackexchange.com/
+% questions/530454/changing-the-color-of-special-underlines-with-ulem
+\newcommand{\coloruwave}[2]{%
+    \UL@protected\def\temp@uwave{\leavevmode \bgroup 
+    \ifdim \ULdepth=\maxdimen \ULdepth 3.5\p@
+    \else \advance\ULdepth2\p@ 
+    \fi \markoverwith{\textcolor{#1}{\lower\ULdepth\hbox{\sixly \char58}}}\ULon}
+    \font\sixly=lasy6 % does not re-load if already loaded, so no memory drain.
+    \temp@uwave{#2}%
+}
+
+\tcbset{
+  defstyle/.style={
+    fonttitle=\bfseries\upshape,
+    fontupper=\slshape,
+    arc=0mm,
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    before upper=\leavevmode,    % ← start in horizontal mode
+    boxsep=2pt,                  % ← internal padding
+    enlarge top by=1pt           % ← extra gap under title
+  },
+  theostyle/.style={
+    fonttitle=\bfseries\upshape,
+    fontupper=\slshape,
+    arc=0mm,
+    colback=red!10!white,
+    colframe=red!75!black,
+    before upper=\leavevmode,    
+    boxsep=2pt,
+    enlarge top by=1pt
+  },
+  egstyle/.style={
+    fonttitle=\bfseries\upshape,
+    fontupper=\slshape,
+    arc=0mm,
+    colback=green!10!white,
+    colframe=green!75!black,
+    before upper=\leavevmode,    
+    boxsep=2pt,
+    enlarge top by=1pt
+  },
+}
+
+\NewTcbTheorem[number within=subsection,crefname={definition}{definitions}]%
+  {Definition}{Definition}{defstyle}{def}
+\NewTcbTheorem[use counter from=Definition,crefname={theorem}{theorems}]%
+  {Theorem}{Theorem}{theostyle}{theo}
+\NewTcbTheorem[use counter from=Definition,crefname={proposition}{theorems}]%
+  {Proposition}{Proposition}{theostyle}{theo}
+\NewTcbTheorem[use counter from=Definition,crefname={corollary}{corollaries}]%
+  {Corollary}{Corollary}{theostyle}{cor}
+\NewTcbTheorem[use counter from=Definition,crefname={lemma}{lemmas}]%
+  {Lemma}{Lemma}{theostyle}{lem}
+\NewTcbTheorem[use counter from=Definition,crefname={example}{examples}]%
+  {Example}{Example}{egstyle}{eg}
+
+
+\tcolorboxenvironment{proof}{blanker}

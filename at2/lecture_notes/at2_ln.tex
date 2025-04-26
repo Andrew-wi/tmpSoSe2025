@@ -1,8 +1,12 @@
 \documentclass{article}
 
-\usepackage{technical_notes}
+\usepackage{technical_notes_1_20250424}
+
+\makeindex
 
 \begin{document}
+
+\tableofcontents
 
 \section{Lecture 1}
 \label{sec:lecture1}
@@ -16,5 +20,140 @@ Today, we reviewed:
 \end{enumerate}
 
 Understanding this $\ker \delta_n$ will be the topic of the next lecture. For more details, see my handwritten notes.
+
+Recall that \textbf{homology}\index{homology} is represented as taking a space $X$, making a chain complex $C_i$ out of it, and then by a purely algebraic manipulation creating a homology $H_i$. For a cochain complex, we dualize $C_i$, then take a cohomology $H^i$.
+
+\begin{equation}
+\begin{tikzcd}[column sep=5.0em]
+  \text{Space } X \arrow[r, rightsquigarrow] & \text{chain complex } C_i \arrow[r, rightsquigarrow, "\text{purely algebraic}"] \arrow[d, "\text{dualize}", rightsquigarrow] & \text{homology} H_i \\
+  & \text{cochain complex } C_i \ar[r, rightsquigarrow] & \text{cohomology } H^{i}
+\end{tikzcd}
+\end{equation}
+
+Suppose now that we have a chain complex $C_{i}$ of free Abelian groups:
+\begin{equation}
+  \dots C_{n + 1} \xrightarrow{\partial} C_{n} \rightarrow C_{n - 1} \rightarrow \dots.
+\end{equation}
+Take an abelian group $G$ (feel free to think about $G = \Z$) and consider the dual
+\begin{equation}
+  (C_n)^{*} = \text{Hom}(C_n, G) \text{, an additive group.}
+\end{equation}
+
+We have no natural map from $C_n^{*} \rightarrow C_{n - 1}^{*}$, but we do have one from 
+\begin{align}
+\label{eq:1}
+  C_n^{*} &\rightarrow C_{n + 1}^{*} \\
+  \partial^{*} : \text{Hom}(C_n, G) &\rightarrow \text{Hom}(C_{n+1}, G) \\
+  \varphi &\mapsto \varphi \circ \partial
+\end{align}
+
+giving us 
+\begin{align}
+\label{eq:2}
+  \dots \rightarrow C_{n - 1}^{*} \rightarrow C_n^{*} \xrightarrow{\delta} C_{n + 1}^{*} \rightarrow C_{n+2}^{*} \rightarrow \dots
+\end{align}
+
+Note that we use the sign convention
+\begin{equation}
+  \delta : C_n^{*} \rightarrow C_{n+1}^{*} \text{ in } (-1)^{n + 1}\partial^{*}
+\end{equation}
+which is \textbf{\textit{not}} used in Hatcher \& Bredon.
+
+\begin{Definition}{Cochain Complex}
+. A \textbf{cochain complex}\index{cochain complex} $C^{\bullet}$ is a collection of Abelian groups $C^n$ with codifferentials $\delta_n$ such that $\delta_{n + 1}\delta_n = 0$.
+\end{Definition}
+
+Thus,
+\begin{equation}
+  \mathcal{H}om(C_{\bullet}, G) = \text{Hom}(C_i, G) \text{ with differential } \delta = (-1)^{n + 1}\partial^{*}
+\end{equation}
+is a cochain complex, as defined above. Be cautious of $\text{Hom}$ vs. $\mathcal{H}om$.
+
+\begin{Definition}{Cohomology}
+. For a cochain complex $C^{\bullet}$, define \textbf{cohomology}\index{cohomology} as
+\begin{equation}
+  H^i(C^{\bullet}) = \frac{\ker \delta_i}{\text{im} \delta_{i-1}}.
+\end{equation}
+\end{Definition}
+
+If $C_{\bullet}$ is a chain complex, then any choice of abelian group $G$ gives a cochain complex
+\begin{equation}
+  \mathcal{H}om(C_{\bullet}, G),
+\end{equation}
+hence a cohomology and thus gohomology groups, denoted as $H^{*}(C_{\bullet}, G)$.
+
+If $C_{\bullet}$ is the singular cochain complex of a space $X$, then put
+\begin{equation}
+  H^{*}(X', G) = H^{*}(\mathcal{H}om(C, G)).
+\end{equation}
+
+\begin{Example}{Singuluar Cochain Complex}
+.  Let $C_{\bullet}$ be:
+\begin{equation}
+  \begin{tikzcd}
+    \dots  \ar[r] & 0 \ar[r] & \Z \ar[r, "0"] & \Z \ar[r, "\cdot 2"] & \Z \ar[r, "0"] & \Z \ar[r] & 0.
+  \end{tikzcd}
+\end{equation}
+
+Then we have:
+\begin{equation}
+  H_{*}(C_{\bullet}) =
+  \begin{cases}
+    \Z & \quad n = 0,\\
+    \Z / 2\Z & \quad n = 1,\\
+    0 & \quad n = 2,\\
+    \Z & \quad n = 3.
+  \end{cases}
+\end{equation}
+If we let $G = \Z$, and dualize, then we obtain:
+\begin{equation}
+  \begin{tikzcd}
+    \dots & \ar[l] 0 & \ar[l] \Z & \ar[l, "0"] \Z & \ar[l, "\cdot 2"] \Z & \ar[l, "0"] \text{\normalfont Hom}(\Z, \Z) \cong \Z & \ar[l] 0.
+  \end{tikzcd}
+\end{equation}
+has cohomology:
+\begin{equation}
+  H^{*}(C_{\bullet}) =
+  \begin{cases}
+    \Z & \quad n = 0,\\
+    0 & \quad n = 1,\\
+    \Z / 2\Z & \quad n = 2,\\
+    \Z & \quad n = 3.
+  \end{cases}
+\end{equation}
+These are \textbf{not} the duals of the homology $H_{*}$. Moreover, $G = \Z/2\Z$ has different results. 
+\end{Example}
+
+\textbf{\textit{Note: Functoriality.}} If $C_{\bullet} \rightarrow D_{\bullet}$ is a map of cochain complexes, dualizing gives
+\begin{align}
+  \mathcal{H}om (D_{\bullet}, G) &\rightarrow \mathcal{H}(C_{\bullet}, G) \\
+  \varphi &\mapsto \varphi \circ f
+\end{align}
+which induces a map
+\begin{equation}
+  H^{*}(\mathcal{H}om(D_{\bullet}, G)) \rightarrow H^{*}(\mathcal{H}om(C_{\bullet}, G)).
+\end{equation}
+
+We want to now relate the cohomology of $\mathcal{H}om(C_{\bullet}, G)$ to the homology of $C_{\bullet}$.
+
+\begin{Lemma}{Cohomology and Homology}
+. For any chain complex of free Abelian groups, and any Abelian group $G$, there is a natural surjection:
+\begin{equation}
+  h : H^n(C_{\bullet}; G) \rightarrow \text{\normalfont Hom}(H_n(C_\bullet; G))
+\end{equation}
+and the sequence
+\begin{equation}
+  \begin{tikzcd}
+    0 \ar[r] & \ker(h) \ar[r] & H^n(C_{\bullet}; G) \ar[r] & \ar[l, dashed, red, bend right=30] \text{\normalfont Hom}(H_{n}(C_{\bullet}; G)) \ar[r] & 0
+  \end{tikzcd}
+\end{equation}
+\coloruwave{red}{splits}.
+\end{Lemma}
+
+\begin{proof}
+  The proof can be found in my live notes. Please review it in detail.
+\end{proof}
+
+\printindex
 
 \end{document}
