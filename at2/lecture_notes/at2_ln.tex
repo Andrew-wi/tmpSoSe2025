@@ -154,6 +154,100 @@ and the sequence
   The proof can be found in my live notes. Please review it in detail.
 \end{proof}
 
+\section{Lecture 2}
+
+Our goal for today is to understand $\ker h$.
+
+\begin{Lemma}{``Hom is left exact''}
+.  Suppose that
+\begin{equation}
+  0 \rightarrow A \xrightarrow{f} B \xrightarrow{g} C \rightarrow 0.
+\end{equation}
+  is a short exact sequence of Abelian groups and $G$ is a group. Then the dual sequence
+  \begin{equation}
+    0 \rightarrow \text{\normalfont Hom} (C; G) \xrightarrow{g^{*}} \text{\normalfont Hom}(B ; G) \xrightarrow{f^{*}} \text{\normalfont Hom}(A; G)
+  \end{equation}
+  is exact. If the original sequence was split, then $f^{*}$ is surjective.
+\end{Lemma}
+
+\begin{proof}
+  See my live notes for the proof. Please review it carefully.
+\end{proof}
+
+\textbf{\textit{Remarks.}}
+
+\begin{enumerate}
+\item $\text{Hom}(\cdot, G)$ is a contravariant functor, and the property of the lemma is called ``left-exactness''.
+\item
+  \begin{equation}
+    0 \rightarrow \Z \xrightarrow{\cdot n} \Z \rightarrow \Z / n \Z \rightarrow 0
+  \end{equation}
+  is exact, and $G = \Z$. Dualize:
+  \begin{equation}
+    0 \rightarrow \text{Hom}(\Z/n\Z, \Z) \xrightarrow{0} \Z \xrightarrow{\cdot n} \Z
+  \end{equation}
+  is \textit{not} surjective. So, Hom in general is not exact.
+\end{enumerate}
+
+Now an argument is developed, regarding degree shifts in cochain complexes, short exact sequences are related via the snake lemma, and we make a statement regarding the cokernel, which measures something interesting. See live notes for details.
+
+In fact: $\text{coker} (i_{n-1}^{*})$ measures the ``non-right-exactness'' of Hom applied to a specific SES:
+\begin{equation}\label{eq:sesForCokerNonRightExactness}
+  0 \rightarrow B_{n-1} \xrightarrow{i_{n-1}} Z_{n - 1} \rightarrow H_{n - 1}(C_{\bullet}) \rightarrow 0.
+\end{equation}
+
+\begin{Corollary}{Cohomology and Homology Homomorphisms}
+.  If $H_{n-1}(C_{\bullet})$ is free Abelian, then
+\begin{equation}
+  H^n(C_{\bullet}, G) \cong \text{\normalfont Hom} (H_{n}(C_{\bullet}, G)).
+\end{equation}
+\end{Corollary}
+
+\begin{proof}
+  If $H_{n-1}(C_{\bullet})$ is free Abelian, then~(\ref{eq:sesForCokerNonRightExactness}) splits. Then apply Hom, get a SES, then the $\text{coker}(i_{n-1}^{*}) = 0$.
+\end{proof}
+
+\begin{Definition}{Free Resolution}
+.  Let $H$ be an Abelian group. A \textbf{free resolution}\index{free resolution} of $H$ is an exact sequence
+\begin{equation}
+  \cdots \rightarrow F_2 \rightarrow F_1 \rightarrow F_0 \rightarrow H \rightarrow 0
+\end{equation}
+where all $F$ are free Abelian.
+\end{Definition}
+
+\begin{Lemma}{Free Resolutions of Length 2}
+.  Any Abelian group $H$ has a free resolution (of length 2).
+\end{Lemma}
+
+\begin{proof}
+  $f_0 : \bigoplus_{H\setminus e}\Z \xrightarrow{\pi} H$ a homomorphism mapping $1 \in \Z$ to $h$ induced by $h$. Then
+  \begin{equation}
+    0 \rightarrow \ker(\pi) \rightarrow F_0 \xrightarrow{\pi} H.
+  \end{equation}
+\end{proof}
+
+\begin{Corollary}{Cohomology Independent of Free Resolution}
+  Suppose that
+  \begin{equation}
+    \cdots \rightarrow F_2 \rightarrow F_1 \rightarrow F_0 \rightarrow H \rightarrow 0
+  \end{equation}
+  is a free resolution of $H$, $G$ is any Abelian group. Consider the cochain complex
+  \begin{equation}
+    0 \rightarrow  \text{\normalfont Hom}(H, G) \xrightarrow{f_0^{*}}\text{\normalfont Hom}(F_0, G) \xrightarrow{f_1^{*}} \text{\normalfont Hom}(F_1, G) \rightarrow \cdots.
+  \end{equation}
+  The cohomology of this is independent of the free resolution. We call the first cohomology group
+  \begin{equation}
+    \ker f_2^{*} / \text{im} f_1^{*} = \text{\normalfont Ext}^1(H, G).
+  \end{equation}
+  $\text{\normalfont Ext}^1$ is the \textbf{derived functor}\index{derived functor} of Hom.
+\end{Corollary}
+
+There is also a technical corollary, which I leave in the live notes, since the diagram is complicated.
+
+\begin{Corollary}{Technical Corollary: Chain Morphisms}
+.  See live notes.
+\end{Corollary}
+
 \printindex
 
 \end{document}

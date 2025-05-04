@@ -1,6 +1,17 @@
 \begin{theindex}
 
-  \item generalization error, \hyperpage{2}
+  \item consistent, \hyperpage{5}
+  \item consistent case, \hyperpage{5}
+
+  \indexspace
+
+  \item efficiently PAC-learnable, \hyperpage{5}
+  \item empirical risk, \hyperpage{3}
+  \item empirical risk minimization, \hyperpage{4}
+
+  \indexspace
+
+  \item generalization error, \hyperpage{3}
 
   \indexspace
 
@@ -21,10 +32,15 @@
   \indexspace
 
   \item PAC learning framework, \hyperpage{2}
+  \item PAC-learnable, \hyperpage{4}
 
   \indexspace
 
-  \item risk, \hyperpage{2}
+  \item risk, \hyperpage{3}
+
+  \indexspace
+
+  \item sample complexity, \hyperpage{4}
 
   \indexspace
 

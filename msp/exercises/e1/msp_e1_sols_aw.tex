@@ -1,0 +1,71 @@
+\documentclass{article}
+
+\usepackage{technical_notes_1_20250424}
+
+\title{Exercise 1}
+\author{Andrew Winnicki}
+\date{SoSe2025}
+
+\makeindex
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Exercise 1}
+
+Calculate the probability $\pr_{n,E}(X_1 = \varepsilon)$ by counting.
+\begin{align}
+  \pr_{n,E}(X_1 = 1) &= \frac{\# \text{ states with } \omega_1 = 1}{\# \text{ total states}} \\
+                     &= \frac{{n - 1 \choose E - 1}}{{n \choose E}} \\
+                     &= \frac{(n-1)!}{(E - 1)! (n - E)!} \Big( \frac{n!}{E! (n - E)!} \Big)^{-1} \\
+  &= \frac{E}{n}.
+\end{align}
+
+Similarly,
+\begin{align}
+  \pr_{n, E}(X_1 = 0) &= \frac{\# \text{ states with } \omega_1 = 0}{\# \text{ total states}} \\
+                      &= \frac{{n - 1 \choose E}}{{n \choose E}} \\
+                      &= \frac{(n - 1)!}{E!(n - E - 1)!} \frac{E! (n - E)!}{n!} \\
+  &= \frac{n - E}{n} = 1 - \frac{E}{n}.
+\end{align}
+
+Now, note that
+\begin{align}
+  \lim_{n \rightarrow \infty} \pr_{n,E}(X_1 = 1) &= \lim_{n \rightarrow \infty} \frac{E_n}{n} = u, \\
+  \lim_{n \rightarrow \infty} \pr_{n, E}(X_1 = 0) &= \lim_{n \rightarrow \infty} (1 - \frac{E_n}{n}) = 1 - u.
+\end{align}
+
+Connect this with the Gibbs distribution by solving for $\beta$, first with $\varepsilon = 1$:
+\begin{align}
+  \frac{e^{-\beta \cdot 1}}{1 + e^{-\beta}} &= u \\
+  e^{-\beta} &= u ( 1 + e^{-\beta}) \\
+  e^{-\beta} &= \frac{u}{1 - u} \\
+  \beta &= \ln\left(\frac{1-u}{u}\right).
+\end{align}
+
+Similarly, for $\beta = 0$, solve:
+\begin{align}
+  \frac{e^{-\beta \cdot 0}}{1 + e^{-\beta}} &= 1 - u\\
+  1 &= 1 + e^{-\beta} - u - ue^{-\beta} \\
+  \frac{u}{1-u} &= e^{-\beta} \\
+  \beta &= \ln \left( \frac{1-u}{u} \right).
+\end{align}
+
+Therefore, we may write
+\begin{align}
+  \lim_{n \rightarrow \infty} \pr_{n,E}(X_1 = 1) = u &= \frac{e^{-\beta \cdot 0}}{1 + e^{-\beta}}, \\
+  \lim_{n \rightarrow \infty} \pr_{n, E}(X_1 = 0) = 1 - u &= \frac{e^{-\beta \cdot 1}}{1 + e^{-\beta}}
+\end{align}
+where $\beta = \ln \left( \frac{1 - u}{u} \right)$. Therefore, we may again rewrite
+\begin{align}
+  \lim_{n \rightarrow \infty} \pr_{n, E}(X_1 = \varepsilon) = \frac{e^{-\beta\cdot\varepsilon}}{1 + e^{-\beta}} = \frac{e^{-\beta \cdot \varepsilon}}{Z(\beta)}, \quad \beta = \ln \left( \frac{1 - u}{u} \right).
+\end{align}
+
+Furthermore, $\beta$ is uniquely determined because $\ln \left( \frac{1 - u}{u} \right)$ is a monotonic function.
+
+\printindex
+
+\end{document}

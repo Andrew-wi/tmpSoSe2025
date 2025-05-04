@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.11.9)  25 APR 2025 11:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.11.9)  3 MAY 2025 17:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -721,7 +721,50 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count324
 \l__pdf_internal_box=\box79
 )
-(./rg_ln.aux)
+(./rg_ln.aux
+
+LaTeX Warning: Label `def:.' multiply defined.
+
+
+LaTeX Warning: Label `def:.@cref' multiply defined.
+
+
+LaTeX Warning: Label `eg:.' multiply defined.
+
+
+LaTeX Warning: Label `eg:.@cref' multiply defined.
+
+
+LaTeX Warning: Label `def:.' multiply defined.
+
+
+LaTeX Warning: Label `def:.@cref' multiply defined.
+
+
+LaTeX Warning: Label `def:.' multiply defined.
+
+
+LaTeX Warning: Label `def:.@cref' multiply defined.
+
+
+LaTeX Warning: Label `def:.' multiply defined.
+
+
+LaTeX Warning: Label `def:.@cref' multiply defined.
+
+
+LaTeX Warning: Label `theo:.' multiply defined.
+
+
+LaTeX Warning: Label `theo:.@cref' multiply defined.
+
+
+LaTeX Warning: Label `theo:.' multiply defined.
+
+
+LaTeX Warning: Label `theo:.@cref' multiply defined.
+
+)
 \openout1 = `rg_ln.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -742,8 +785,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count325
 \scratchdimen=\dimen270
@@ -794,23 +836,29 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./rg_ln.ind [3] [4
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] (./rg_ln.ind [
+5] [6
 
 
-]) (./rg_ln.aux)
+])
+(./rg_ln.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `rg_ln.out' has not changed.
-(rerunfilecheck)             Checksum: FF47CA7B32AA0F6D0FBCC2C90C2204D0;91.
+(rerunfilecheck)             Checksum: 3B41B74612CC9AF0BC21BF57324DDBDA;182.
  ) 
 Here is how much of TeX's memory you used:
- 28865 strings out of 474222
- 589955 string characters out of 5748733
- 1940975 words of memory out of 5000000
- 50655 multiletter control sequences out of 15000+600000
- 562098 words of font info for 51 fonts, out of 8000000 for 9000
+ 28903 strings out of 474222
+ 590536 string characters out of 5748733
+ 1939975 words of memory out of 5000000
+ 50671 multiletter control sequences out of 15000+600000
+ 562802 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,10n,113p,439b,863s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -828,10 +876,10 @@ m/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on rg_ln.pdf (4 pages, 191574 bytes).
+Output written on rg_ln.pdf (6 pages, 210216 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 125 compressed objects within 2 object streams
- 32 named destinations out of 1000 (max. 500000)
- 165 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 233 PDF objects out of 1000 (max. 8388607)
+ 167 compressed objects within 2 object streams
+ 53 named destinations out of 1000 (max. 500000)
+ 173 words of extra memory for PDF output out of 10000 (max. 10000000)
 

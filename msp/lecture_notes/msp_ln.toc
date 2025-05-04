@@ -1,3 +1,5 @@
 \contentsline {section}{\numberline {1}Lecture 1}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}The Ising Model}{1}{subsection.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.1}The Model}{1}{subsubsection.1.1.1}%
+\contentsline {section}{\numberline {2}Lecture 2}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Thermodynamic Limit of the Pressure}{3}{subsection.2.1}%

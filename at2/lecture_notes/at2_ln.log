@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.11.9)  26 APR 2025 13:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.11.9)  3 MAY 2025 14:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -782,6 +782,30 @@ LaTeX Warning: Label `def:.' multiply defined.
 
 LaTeX Warning: Label `def:.@cref' multiply defined.
 
+
+LaTeX Warning: Label `lem:.' multiply defined.
+
+
+LaTeX Warning: Label `lem:.@cref' multiply defined.
+
+
+LaTeX Warning: Label `def:.' multiply defined.
+
+
+LaTeX Warning: Label `def:.@cref' multiply defined.
+
+
+LaTeX Warning: Label `lem:.' multiply defined.
+
+
+LaTeX Warning: Label `lem:.@cref' multiply defined.
+
+
+LaTeX Warning: Label `cor:.' multiply defined.
+
+
+LaTeX Warning: Label `cor:.@cref' multiply defined.
+
 )
 \openout1 = `at2_ln.aux'.
 
@@ -860,8 +884,8 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 19
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] (./at2_ln.ind [4] 
-[5
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] (./at2_ln.
+ind [6] [7
 
 
 ])
@@ -875,13 +899,13 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `at2_ln.out' has not changed.
-(rerunfilecheck)             Checksum: FF47CA7B32AA0F6D0FBCC2C90C2204D0;91.
+(rerunfilecheck)             Checksum: 3B41B74612CC9AF0BC21BF57324DDBDA;182.
  ) 
 Here is how much of TeX's memory you used:
- 30759 strings out of 474222
- 646160 string characters out of 5748733
+ 30801 strings out of 474222
+ 646840 string characters out of 5748733
  1950975 words of memory out of 5000000
- 52496 multiletter control sequences out of 15000+600000
+ 52516 multiletter control sequences out of 15000+600000
  563403 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,22n,121p,479b,1306s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -891,18 +915,21 @@ e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxsl10.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy6.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on at2_ln.pdf (5 pages, 173492 bytes).
+/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy6.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on at2_ln.pdf (7 pages, 214872 bytes).
 PDF statistics:
- 193 PDF objects out of 1000 (max. 8388607)
- 130 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
- 165 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 248 PDF objects out of 1000 (max. 8388607)
+ 177 compressed objects within 2 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 173 words of extra memory for PDF output out of 10000 (max. 10000000)
 

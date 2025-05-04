@@ -81,7 +81,7 @@ Assumptions on measurable spaces: several assumptions are made, simply to remove
 
 We can also define the \textbf{generalization error}\index{generalization error}.
 
-\begin{Definition}{Generalization Error}
+\begin{Definition}{Generalization Error/Risk}
 . For $h : X \rightarrow Y = \{ 0 , 1 \}$, the \textbf{generalization error} or \textbf{risk}\index{risk} of $h$ is:
 \begin{equation}
   R(h) = \underset{x \sim \mathcal{D}}{\bP} (h(x) \neq f(x)) = \bE [ \1_{\{x | h(x) \neq f(x) \} } ].
@@ -101,6 +101,94 @@ since
 \end{align}
 
 Also note that above, we assumed a fixed labeling function $f: X \rightarrow Y = \{ 0 , 1 \}$ and probability distribution $\mathcal{D}$ on $X$.
+
+\section{Lecture 2}
+
+\begin{Definition}{Empirical Risk}
+.  Let $h: X \rightarrow Y = \left\{ 0, 1 \right\}$, the (true) labeling function is $f : X \rightarrow Y$, and sames $S = (x_1, \dots, x_m)$ (with $x_i \in X$). Then the \textbf{empirical risk}\index{empirical risk} is
+\begin{equation}
+  \hat{R}(h) = \frac{1}{m} \sum\limits_{i = 1}^m \1_{\left\{ h(x_i \neq f(x_i) \right\}} = \frac{1}{m} \# \left\{ i \in [m] : h(x_i) \neq f(x_i) \right\}
+\end{equation}
+where $[m] := \left\{ 1, \dots, m \right\}$; for a finite set $A$, we have that $\# A = |A|$.
+\end{Definition}
+
+Drawing $x_i, \dots, x_m$ from $\mathcal{D}$ means that we draw $S = ( x_1, \dots, x_m) \sim \mathcal{D}$. Consequently, we obtain a random variable which we also denote by $\hat{R}(h)$.
+
+\begin{Lemma}{Expectation of Empirical Risk equals Risk}
+.  If $x_1, \dots, x_m$ are drawn i.i.d. according to $\mathcal{D}$, then for any (measurable) $h : X \rightarrow \left\{  0, 1 \right\}$,
+\begin{equation}
+  \bE[ \hat{R}  ] = R(h).
+\end{equation}
+\end{Lemma}
+
+\begin{Definition}{Empirical Risk Minimization}
+.  Let $f : X \rightarrow Y = \left\{ 0, 1 \right\}$ be the true labeling function and let $\mathcal{H} \subset \left\{ h : X \rightarrow Y \right\}$ be a hypothesis set. Given a sample $S = (x_1, \dots, x_m) \in X^m$ with corresponding labels $y_i = f(x_i)$, for $i \in \left\{ 1, \dots, m \right\}$, the \textbf{empirical risk minimization}\index{empirical risk minimization} consists of selecting a minimizer $h \in \mathcal{H}$ of $\hat{R}$, i.e. selecting an $h$ realizing
+\begin{equation}
+  \min_{h \in \mathcal{H}} \hat{R}(h) = \min_{h \in \mathcal{H}} \frac{1}{m} \sum\limits_{i = 1}^m \1_{h(x_i \neq f(x_i)}.
+\end{equation}
+\end{Definition}
+
+An example of overfitting is provided: we can easily overfit with empirical risk minimization, see live notes.
+
+\begin{Definition}{PAC-learning, Consistent Case}
+  .  A hypothesis class $\mathcal{H} \subset \left\{ h : X \rightarrow Y = \left\{ 0, 1 \right\} \right\}$ is \textbf{PAC-learnable}\index{PAC-learnable} if there exists a function $m_{\mathcal{H}} : (0, 1)^2 \rightarrow \N$ and a learning algorithm $\mathcal{A}$ with the following property:\\
+
+  For every $\varepsilon, \delta \in (0, 1)$, for all probability distributions $\mathcal{D}$ over $X$, for every labeling function $f \in \mathcal{H}$, the following holds:\\
+
+  If $m \geq m_{\mathcal{H}}(\varepsilon, \delta)$ and $S = (x_1, \dots, x_m)$ is an i.i.d. sample, $S \sim D^m$, then given the data $(x_i, y_i) = (x_i, f(x_i)), \; i = 1, \dots, m$, the algorithm $\mathcal{A}$ returns a hypothesis
+  \begin{equation}
+    h_S \in \mathcal{H}
+  \end{equation}
+  such that with probability of at least $1 - \delta$ (over $S \sim D^m$),
+  \begin{equation}
+    R(h_S) \leq \varepsilon.
+  \end{equation}
+\end{Definition}
+
+\textbf{\textit{Remarks.}}
+
+\begin{enumerate}
+\item There are analogous definitions of empirical risk, empirical risk minimization, PAC-learnable for any $Y$ consisting of two elements.
+\item The \textbf{sample complexity}\index{sample complexity} $m_{\mathcal{H}} : (0, 1)^2 \rightarrow \N$ determines the number of required training data in order to learn $\mathcal{H}$. It will depend on the accuracy $\varepsilon$ and the confidence $\delta$ and on properties of $\mathcal{H}$. Ideally, $m_{\mathcal{H}}$ should be bounded by a polynomial in $\frac{1}{\varepsilon}$ and $\frac{1}{\delta}$. (More precisely, the sample complexity should be defined as the minimal $m_{\mathcal{H}}$ satisfying the conditions in the definition.
+\item The definition of PAC-learnable does not require that the algorithm $\mathcal{A}$ be efficient; only the existence of a possibly slow (intractable) algorithm is assumed. If the runtime of the algorithm is polynomial (in $\frac{1}{\varepsilon}, \frac{1}{\delta}$, and the ``computational representation of $f \in \mathcal{H}$''), then we call $\mathcal{H}$ \textbf{efficiently PAC-learnable}\index{efficiently PAC-learnable}.
+\item Empirical risk minimization is a possible ``algorithm'', but it may not always be the optimal one. Depending on $\mathcal{H}$, it may be efficient or not.
+\item In some cases, PAC-learnability may be shown directly (e.g., learning axis-aligned rectangles, see Exercise Sheet 1).
+\end{enumerate}
+
+\begin{Theorem}{Finite $\mathcal{H}$, consistent case}
+.  Let $\mathcal{H} = $ a finite set of functions $h: X \rightarrow y = \left\{ 0, 1 \right\}$. Assume that the labeling function $f$ belongs to $\mathcal{H}$ and let $\mathcal{A}$ be an algorithm that for each i.i.d. sample $S = (x_1, \dots, x_m)$ and labeled training data $(x_i, y_i) = (x_i, f(x_i)), \; i = 1 , \dots, m$ returns a consistent hypothesis h$_S \in \mathcal{H}$; i.e., $\hat{R}(h_S) = 0$. Then for $\varepsilon, \delta \in (0, 1)$, if
+\begin{equation}
+  m \geq \frac{1}{\varepsilon} (\log |\mathcal{H}| + \log \left( \frac{1}{\delta} \right)
+\end{equation}
+the inequality
+\begin{equation}
+  \bP [R(h_S) \leq \varepsilon] \geq 1 - \delta
+\end{equation}
+holds.
+\end{Theorem}
+
+In other words, with probability at least $1 - \delta$,
+\begin{equation}
+  R(h_S) \leq \frac{1}{m}(\log |\mathcal{H}| + \log \left( \frac{1}{\delta} \right).
+\end{equation}
+
+\begin{proof}
+  Proof in live notes. Please examine it carefully.
+\end{proof}
+
+The theorem shows in its assumptions that $\mathcal{H}$ is PAC-learnable with
+\begin{equation}
+  m_{\mathcal{H}}(\varepsilon, \delta) = \frac{1}{\varepsilon} \lceil \log |\mathcal{H}| + \log \left( \frac{1}{\delta} \right)  \rceil .
+\end{equation}
+
+\textbf{\textit{Conclusion.}}
+
+\begin{enumerate}
+\item For finite hypothesis set $\mathcal{H}$, a consistent learning algorithm $\mathcal{A}$ is a PAC learning algorithm with sample complexity polynomial (even linear) in $\frac{1}{\varepsilon}$, and logarithmic in $\frac{1}{\delta}$ and $\left| \mathcal{H} \right|$.
+\item $\log \left| \mathcal{H} \right|$ may be interpreted as the number of bits to represent $\mathcal{H}$ (up to a constant factor).
+\item Note that $f \in \mathcal{H}$ guarantees that empirical risk minimization always returns an $h_S$ with $\hat{R}(h_S)$.
+\item Note: ``\textbf{consistent} $h$''\index{consistent} means that $\hat{R}(h) = 0 $. The ``\textbf{consistent case}''\index{consistent case} is where $f \in \mathcal{H}$.
+\end{enumerate}
 
 \printindex
 

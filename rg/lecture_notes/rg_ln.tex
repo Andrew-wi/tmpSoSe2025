@@ -119,6 +119,89 @@ defines a Riemannian metric on M.
 defines a Riemannian manifold isometric to hyperbolic space. 
 \end{Example}
 
+\section{Lecture 2}
+
+\begin{Definition}{Isometry}
+.  Let $(M, g)$ and $(N, h)$ be Riemannian manifolds.
+\begin{enumerate}
+\item A diffeomorphism $\varphi : M \rightarrow N$ is called an \textbf{isometry}\index{isometry} if $\varphi^{*}h = g$, i.e.
+  \begin{equation}
+    g_p(v, w) = h_{\varphi(p)} (d\varphi_pv, d\varphi_pw)
+  \end{equation}
+  $\forall p \in M; \; v, w \in T_pM$.
+\item A smooth map $\varphi: M \rightarrow N$ is called a \textbf{local isometry}\index{local isometry} if every point $p \in M$ has an open neighborhood $U$ such that $\varphi|_U : U \rightarrow \varphi(U)$ is an isometry.
+\item The set of all isometries of $(M, g)$
+  \begin{equation}
+    \text{iso} (M, g) = \{ \varphi : M \rightarrow M \; | \; \varphi \text{ is an isometry} \}
+  \end{equation}
+  is a group, the so called \textbf{isometry group}\index{isometry group}.
+\end{enumerate}
+\end{Definition}
+
+\textbf{\textit{Remarks.}}
+
+\begin{enumerate}
+\item If $\varphi : (M, g) \rightarrow (N, h)$ is a local isometry, then
+  \begin{equation}
+    d \varphi_p : T_p M \rightarrow T_p N
+  \end{equation}
+  is a linear isometry.
+\end{enumerate}
+
+\begin{Example}{$\exp$ is a Local Isometry}
+.  Consider $\R$ with Euclidean inner product $g$. Further, consider $S^1 \subset \R^2 \subset \mathbb{C}^1$ with the induced Riemannian metric. Then
+\begin{equation}
+  \exp : \R \rightarrow S^1, \quad t \mapsto e^{it}
+\end{equation}
+is a local isometry. For
+\begin{equation}
+  \lVert (d \, \exp)_t \left( \frac{\partial}{\partial t} \right) \rVert = \left| \frac{d}{dt}\left( e^{it} \right) \right| = | i \cdot e^{it} | = 1 \rightarrow d \, \exp_t \neq 0
+\end{equation}
+  which shows that $\exp$ is a local isometry, but not an isometry: $\R \not\cong S^1$, not even homeomorphic.
+\end{Example}
+
+\begin{Definition}{Group action, Isometric action}
+.  Let $G$ be a group, $M$ be a smooth manifold. A \textbf{(smooth) action}\index{action}\index{smooth action} of $G$ on $M$ is a homomorphism
+\begin{equation}
+  \phi : G \rightarrow \text{\normalfont Diff}(M), \quad a \mapsto \phi_a;
+\end{equation}
+i.e.,
+\begin{equation}
+  \phi_{a_1 a_2}(x) = (\phi_{a_1} \circ \phi_{a_2})(x) \; \forall a_1, a_2 \in G, \; x \in M
+\end{equation}
+where $\phi_e = \text{\normalfont id}_M$, and $e \in G$ is the neutral element. We sometimes denote such an action as $G \curvearrowright M$, and write $\phi_a(x)$ as $ax$. If $(M,g)$ is a Riemannian manifold, and $\phi(G) \subset \text{\normalfont Iso}(M, g)$, then we call this action \textbf{isometric}\index{isometric}.
+\end{Definition}
+
+\begin{Definition}{Free Group Action}
+.  A group action $G \curvearrowright M$ is called \textbf{free}\index{free group action} if for any $g \in G, \; x \in M, \; gx = x \implies g = e$.
+\end{Definition}
+
+\begin{Definition}{Covering Space Action}
+  .  A smooth action $\Gamma \curvearrowright M$ of a group $\Gamma$ on a smooth manifold $M$ is called a \textbf{covering space action}\index{covering space action} if the following holds:
+
+  Every point $x \in M$ has an open neighborhood $U$ such that $\gamma U \cap U = \emptyset \; \forall \gamma \in \Gamma \setminus \left\{ e \right\}$.
+
+  In partuclar, $\Gamma \curvearrowright M$ is free.
+\end{Definition}
+
+\begin{Proposition}{Quotient of Smooth Manifold by Covering Space Action}
+.  Let $\Gamma \curvearrowright M$ be a smooth covering space action of a group $\Gamma$ on a manifold $M$. Then $M/\Gamma$ is a topological manifold with a unique smooth structure with respect to which the projection $M \rightarrow M/\Gamma$ is a local diffeomorphism.
+\end{Proposition}
+
+\begin{proof}
+  See my live notes for the proof. Please examine it carefully.
+\end{proof}
+
+A comment is made on the universal cover of $M$, and examples are provided in the live notes.
+
+Conversely, we have:
+
+\begin{Proposition}{Riemannian Metric and Local Isometry}
+.  Let $\Gamma \curvearrowright (M, g)$ be a covering space action by isometries on a Riemannian manifold $(M, g)$. Then there exists a unique Riemannian metric $\overline{g}$ on $M / \Gamma$ such that $\pi: (M, g) \rightarrow (M / \Gamma, \overline{g})$ is a local isometry.
+\end{Proposition}
+
+Examples are provided, see live notes.
+
 \printindex
 
 \end{document}

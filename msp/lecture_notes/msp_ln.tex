@@ -84,6 +84,114 @@ Physically, this is just the sum of the spins on each vertex of the lattice $\La
 \end{align}
 where $m_{\Lambda}(\beta, h)$ is the \textbf{average magnetization}\index{average magnetization} per unit volume.
 
+\section{Lecture 2}
+
+\subsection{Thermodynamic Limit of the Pressure}
+
+We first introduce some new notation. We denote
+\begin{equation}
+  \varepsilon_{\Lambda} := \{ \{ i, j \} \subset \Lambda : \underbrace{|| i - j || = 1}_{i \sim j ; \; i, j \; \text{n.n.}} \}.
+\end{equation}
+
+We regard $\varepsilon_{\Lambda}$ as the bulk with interactions across the boundary. Now, for a the bulk which \textit{does} have interactions across the boundary, we denote this as
+\begin{equation}
+  \varepsilon_{\Lambda}^{b} := \{ \{ i, j \} \subset \Z^d : i \sim j, \; i \in \Lambda \text{ or } j \in \Lambda \}.
+\end{equation}
+
+Now, let's consider the energy with \textit{empty boundary}: $\beta > 0$, and $h \in \R$. We calculate: 
+\begin{align}
+\label{eq:4}
+  \sH_{\Lambda, \beta, h}^{\emptyset} : \Omega_{\Lambda} \rightarrow \R, \quad \sH_{\Lambda, \beta, h}(\omega) := - \beta \sum\limits_{\{ i, j \} \in \varepsilon_{\Lambda}} \omega_i \omega_j - h \sum\limits_{i \in \Lambda} \omega_i.
+\end{align}
+
+Moreover, we may write other thermodynamic quantities with the notion of the ``empty boundary condition'': 
+\begin{align}
+\label{eq:5}
+  Z_{\Lambda, \beta, h}^{\emptyset} := \sum\limits_{\omega\in\Omega_{\Lambda}} e^{-\sH_{\Lambda, \beta, h}^{\emptyset}}, \quad \mu_{\Lambda, \beta, h}^{\emptyset}, \quad \left\langle \; , \;  \right\rangle_{\Lambda, \beta, h}^{\emptyset}, \quad \psi_{\Lambda}^{\emptyset}(\beta, h) := \frac{1}{\left| \Lambda \right|} \log Z_{\Lambda, \beta, h}^{\emptyset}.
+\end{align}
+
+Now, consider an infinite system where we have $\Omega := \{ +1, -1 \}^{\Z^{d}}$. We formalize the boundary conditions. Consider $n \in \Omega$, for example $\eta_i = \pm 1 \; \forall i \in \Z^d$. Then let
+\begin{equation}
+  \Omega_{\Lambda}^{\eta} := \{ \omega \in \Omega : \omega_i = \eta_i \; \forall i \in \Z^d \setminus \Lambda \}. 
+\end{equation}
+
+Then, the energy becomes:
+
+\begin{align}
+  \sH_{\Lambda, \beta, h} : \Omega &\rightarrow \R \\
+  \omega &\mapsto \sH_{\Lambda, \beta, h}(\omega) := - \beta \sum\limits_{\{ i, j \} \in \varepsilon_{\Lambda}^{b}} \omega_i \omega_j - h \sum\limits_{i \in  \Lambda} \omega_i
+\end{align}
+
+Note that since $\omega \in \Omega_{\Lambda}^{\eta}$, then
+\begin{equation}
+  \sH_{\Lambda, \beta, h}(\omega) = \sH_{\Lambda, \beta, h}^{\emptyset}(\omega_{\Lambda}) - \beta \sum\limits_{\substack{\{ i, j \} : i \sim j \\ i \in \Lambda, j \in \Lambda^C}} \omega_i \eta_j.
+\end{equation}
+(Note that here, $\omega_j = \eta_j$.)
+
+So then with $\omega_{\Lambda} = (\omega_i)_{i \in \Lambda}$, the partition function is 
+\begin{align}
+\label{eq:7}
+  Z_{\lambda, \beta, h}^{\eta} &:= \sum\limits_{\omega \in \Omega_{\Lambda}^{\eta}} e^{-\sH_{\Lambda, \beta, h}(\omega)} \\
+  \mu_{\Lambda, \beta, h}^{\eta} &, \; \psi_{\Lambda, \beta, h}(\beta, h).
+\end{align}
+
+\begin{Definition}{van Hove Convergence}
+.  $(\Lambda_{n})_{n\in\N}, \; \Lambda_n \Subset \Z^d$ converges to $\Z^d$ in the sense of \index{van Hove}\textbf{van Hove} (or ``is a van Hove sequence'') if:
+\begin{enumerate}
+\item $\Lambda_n \uparrow \Z^d: \; \forall n , \Lambda_n \subset \Lambda_{n + 1}, \; \Z^d = \cup_{n \in \N} \Lambda_{n}$.
+\item
+  \begin{equation}
+    \lim_{n \to \infty} \frac{\left| \partial^{\mathrm{in}} \Lambda_{\mathrm{in}} \right|}{\left| \Lambda_n \right|} \rightarrow 0
+  \end{equation}
+  where the inner boundary is
+  \begin{equation}
+    \partial^{\mathrm{in}}\Lambda := \{ i \in \Lambda : \exists j \in \Lambda^C \text{ such that } \lVert j - i \rVert = 1 \}
+  \end{equation}
+\end{enumerate}
+  \textbf{\textit{Notation.}} We will denote convergence in the sense of van Hove by $\Lambda_n \Uparrow \Z^d$.
+\end{Definition}
+
+\begin{Example}{van Hove Sequences}
+  .  First, let $\Lambda_{n} = \{ - n, \dots, n \}^{d}$, then
+  \begin{align}
+    \left| \partial^{\mathrm{in}} \Lambda_n \right| &= \mathcal{O}(n^{d-1}),\\
+    \left| \Lambda_n \right| &= n^d.
+  \end{align}
+  This is a van Hove sequence. For a second example, now let $\Lambda_n = \{ - n, \dots, n \} \times \{ - n^2 , \dots, n^2 \}$ in $\Z^2$. Then 
+  \begin{align}
+  \label{eq:8}
+    \left| \partial^{\mathrm{in}} \Lambda_n \right| &= \mathcal{O}(n^2), \\
+    \left| \Lambda_n \right| &= cn^3.
+  \end{align}
+\end{Example}
+
+\begin{Theorem}{van Hove sequence properties}[label=theo:vanHoveSeqProps]
+.  
+  \begin{enumerate}
+  \item The limit $\psi(\beta, h) = \lim_{n \rightarrow \infty} \frac{1}{\left| \Lambda \right|} \log \Z^{\#}_{\Lambda_n, \beta, h} = \lim_{n \rightarrow \infty} \psi_{\Lambda_n}^{\#}(\beta, h)$ exists for all van Hove sequences, for every boundary condition $\# = \emptyset, \; \# = \eta \in \Omega$.
+
+    The value does not depend on the precise choice of van Hove sequence.
+    \item The value of the limit $\psi(\beta, h)$ does not depend on the precise choice of boundary condition, either.
+    \item The map 
+    \begin{align}
+    \label{eq:9}
+      (0, \infty) \times \R &\rightarrow \R \\
+      (\beta, h) &\mapsto \psi(\beta, h)
+    \end{align}
+    is convex.
+  \item $\forall \beta > 0, \; \psi(\beta, h) = \psi(\beta, -h)$.
+  \end{enumerate}
+\end{Theorem}
+
+\begin{Definition}{Convex}[label=def:convex]
+.  For a function to be \textbf{convex}\index{convex} means that $\forall (\beta_1, h_1), \; \forall (\beta_2, h_2), \; \forall t \in [0, 1]$, then
+\begin{equation}
+  \psi\Big( (1 - t) \beta_1 + t \beta_2, (1 - t) h_1 + t h_2\Big) \leq (1 - t) \psi(\beta_1, h_1) + t \psi(\beta_2, h_2).
+\end{equation}
+\end{Definition}
+
+Proof of parts 1, 2 of~\ref{theo:vanHoveSeqProps} in Live Notes LN2.
+
 \printindex
 
 \end{document}

@@ -4,5 +4,12 @@
 \indexentry{training data|hyperpage}{1}
 \indexentry{hypothesis class|hyperpage}{1}
 \indexentry{PAC learning framework|hyperpage}{2}
-\indexentry{generalization error|hyperpage}{2}
-\indexentry{risk|hyperpage}{2}
+\indexentry{generalization error|hyperpage}{3}
+\indexentry{risk|hyperpage}{3}
+\indexentry{empirical risk|hyperpage}{3}
+\indexentry{empirical risk minimization|hyperpage}{4}
+\indexentry{PAC-learnable|hyperpage}{4}
+\indexentry{sample complexity|hyperpage}{4}
+\indexentry{efficiently PAC-learnable|hyperpage}{5}
+\indexentry{consistent|hyperpage}{5}
+\indexentry{consistent case|hyperpage}{5}

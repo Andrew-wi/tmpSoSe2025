@@ -1,0 +1,19 @@
+\documentclass{article}
+
+\usepackage{technical_notes_1_20250424}
+
+\title{Exercise 1}
+
+\makeindex
+
+\begin{document}
+
+\tableofcontents
+
+\section{Exercise 1}
+
+Calculate first the probability $\pr$
+
+\printindex
+
+\end{document}
