@@ -165,8 +165,7 @@ So then with $\omega_{\Lambda} = (\omega_i)_{i \in \Lambda}$, the partition func
   \end{align}
 \end{Example}
 
-\begin{Theorem}{van Hove sequence properties}[label=theo:vanHoveSeqProps]
-.  
+\begin{Theorem}{van Hove sequence properties}{}\label{theo:vanHoveSeqProps}
   \begin{enumerate}
   \item The limit $\psi(\beta, h) = \lim_{n \rightarrow \infty} \frac{1}{\left| \Lambda \right|} \log \Z^{\#}_{\Lambda_n, \beta, h} = \lim_{n \rightarrow \infty} \psi_{\Lambda_n}^{\#}(\beta, h)$ exists for all van Hove sequences, for every boundary condition $\# = \emptyset, \; \# = \eta \in \Omega$.
 
@@ -183,14 +182,78 @@ So then with $\omega_{\Lambda} = (\omega_i)_{i \in \Lambda}$, the partition func
   \end{enumerate}
 \end{Theorem}
 
-\begin{Definition}{Convex}[label=def:convex]
-.  For a function to be \textbf{convex}\index{convex} means that $\forall (\beta_1, h_1), \; \forall (\beta_2, h_2), \; \forall t \in [0, 1]$, then
+\begin{Definition}{Convex}{}\label{def:convex}
+  For a function to be \textbf{convex}\index{convex} means that $\forall (\beta_1, h_1), \; \forall (\beta_2, h_2), \; \forall t \in [0, 1]$, then
 \begin{equation}
   \psi\Big( (1 - t) \beta_1 + t \beta_2, (1 - t) h_1 + t h_2\Big) \leq (1 - t) \psi(\beta_1, h_1) + t \psi(\beta_2, h_2).
 \end{equation}
 \end{Definition}
 
-Proof of parts 1, 2 of~\ref{theo:vanHoveSeqProps} in Live Notes LN2.
+Proof of parts 1, 2 of Theorem (\ref{theo:vanHoveSeqProps}) in Live Notes LN2.
+
+\section{Lecture 3}
+
+The proof from last lecture was completed today. See live notes, or the textbook.
+
+\textbf{\textit{Remark.}} Note also that $Z_{\Lambda_n}^{\eta} (\beta, -h) = Z_{\Lambda_n}^{-\eta}(\beta, h)$.
+
+\subsection{Convexity \& Magnetization}
+
+Recall the definitions of the total magnetization and average magnetization. Can we pass to the limit $\Lambda_n \Uparrow \Z^d$?
+
+To do this, we first note a few useful properties of convex functions. Let $I = (a, b) \subset \R$ be an open interval, $f : (a, b) \rightarrow \R$ convex. Then:
+
+\begin{enumerate}
+\item
+  \begin{equation}
+    \frac{f(y) - f(x)}{y - x} \leq \frac{f(z) - f(x)}{z - x} \leq \frac{f(z) - f(y)}{z - y}.
+  \end{equation}
+\item The \textbf{one-sided limits}\index{one-sided limits} 
+\begin{align}
+\label{eq:10}
+  f' (x+) &:= \lim_{y \downarrow x} \frac{f(y) - f(x)}{y-x}, \\
+  f' (x-) &:= \lim_{y \uparrow x} \frac{f(y) - f(x)}{y - x}
+\end{align}
+exist (in $\R$).
+\item
+  \begin{equation}
+    x < y \implies f' (x-) \leq f' (x + ) \leq f' (y-) \leq f' (y+)
+  \end{equation}
+\item $f$ is continuous in $I$ ($\leftarrow$ open).
+\item Let 
+\begin{align}
+\label{eq:11}
+  \mathcal{B} &:= \left\{ x \in \left( a, b \right) : f' (x-) < f' (x+)  \right\} \\
+  &= \left\{ x \in \left( a, b \right) : f \text{ is not differentiable in }x \right\}. 
+\end{align}
+then $\mathcal{B}$ is empty, finite, or countably infinite.
+\item For all $x, y \in \left( a, b \right)$, 
+\begin{align}
+\label{eq:12}
+  f(y) &\geq f(x) + f' (x+) (y - x),\\
+  f(y) &\geq f(x) + f' (x-) (y - x).
+\end{align}
+\end{enumerate}
+
+\begin{Lemma}{Convex Functions \& Ordering of $\limsup$ and $\liminf$}{}{}
+  Let $f_n : \left( a, b \right) \rightarrow \R, \; n \in \N$ convex, and $f : \left(  a, b \right) \rightarrow \R$. Suppose $\forall x \in \left( a, b \right)$ that $\lim_{n \rightarrow \infty} f_n(x) = f(x)$. Then:
+  \begin{enumerate}
+  \item $f$ is convex.
+  \item $\forall x \in \left( a, b \right)$,
+    \begin{equation}
+      f' (x-) \leq \liminf_{n \rightarrow \infty} f_n' (x-) \leq \limsup_{n \rightarrow \infty} f_n' (x+) \leq f' (x+).
+    \end{equation}
+  \end{enumerate}
+\end{Lemma}
+
+\textbf{\textit{Consequences.}}
+\begin{enumerate}
+\item If in addition $f_n$ is differentiable at $x$, then every accumulation point of $(f_n' (x))_{n \in \N}$ is in $[f' (x-), f' (x+)]$.
+\item If $f_n$ and $f$ are differentiable at $x$, then
+  \begin{equation}
+    \lim_{n \rightarrow \infty} f_n' (x) = f' (x).
+  \end{equation}
+\end{enumerate}
 
 \printindex
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.11.9)  2 MAY 2025 15:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.11.9)  4 MAY 2025 10:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -816,17 +816,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
 
-[2] [3] [4]
-Underfull \hbox (badness 2096) in paragraph at lines 186--188
-[]\OT1/cmr/m/sl/10 label=def:convex] . For a func-tion to be \OT1/cmr/bx/sl/10 
-con-vex[] \OT1/cmr/m/sl/10 means that
- []
-
-
-LaTeX Warning: Reference `theo:vanHoveSeqProps' on page 5 undefined on input li
-ne 193.
-
-(./msp_ln.ind [5] [6
+[2] [3] [4] [5] (./msp_ln.ind [6] [7
 
 
 ]) (./msp_ln.aux)
@@ -834,18 +824,14 @@ ne 193.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `msp_ln.out' has not changed.
-(rerunfilecheck)             Checksum: 5E543DCB4C7D53AAD48D42BA0F238645;679.
+(rerunfilecheck)             Checksum: 70B7F36A3C75B029281A2E94A95EC157;961.
  ) 
 Here is how much of TeX's memory you used:
- 28928 strings out of 474222
- 591102 string characters out of 5748733
- 1939975 words of memory out of 5000000
- 50683 multiletter control sequences out of 15000+600000
+ 29031 strings out of 474222
+ 593043 string characters out of 5748733
+ 1940975 words of memory out of 5000000
+ 50762 multiletter control sequences out of 15000+600000
  563902 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,16n,113p,420b,555s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -869,10 +855,10 @@ exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/rsfs/rsfs7.pfb>
-Output written on msp_ln.pdf (6 pages, 237476 bytes).
+Output written on msp_ln.pdf (7 pages, 248675 bytes).
 PDF statistics:
- 273 PDF objects out of 1000 (max. 8388607)
- 197 compressed objects within 2 object streams
- 56 named destinations out of 1000 (max. 500000)
- 197 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 318 PDF objects out of 1000 (max. 8388607)
+ 240 compressed objects within 3 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 213 words of extra memory for PDF output out of 10000 (max. 10000000)
 
